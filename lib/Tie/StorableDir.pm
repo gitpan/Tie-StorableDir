@@ -14,7 +14,7 @@ use Scalar::Util qw(weaken);
 use Tie::StorableDir::Slot;
 
 our @ISA = qw(Tie::Hash);
-our $VERSION = 0.074;
+our $VERSION = 0.075;
 
 # if $not_exiting = 0, we don't save anything. This is set at the end of the
 # END {} block lower. This prevents gc ordering problems from trashing the data.
@@ -241,19 +241,35 @@ Each value in the hash is stored in a file under the directory passed as
 The format of the files themselves is that of a reference to the scalar
 value, serialized by Storable::store.
 
-=head1 SEE ALSO
-
-C<Storable>, C<perltie>
-
 =head1 BUGS AND CAVEATS
 
- * This module will most likely break under taint mode.
- * Most filesystems impose a length limit on files and paths. This will restrict the maximum length of hash keys.
- * The hash must be untie-d before exiting, or data corruption may result.
+
+=over
+
+=item *
+
+This module will most likely break under taint mode.
+
+
+=item *
+
+Most filesystems impose a length limit on files and paths.
+This will restrict the maximum length of hash keys.
+ 
+=item * 
+
+The hash must be untie-d before exiting, or data corruption may result.
+
+=back
 
 =head1 AUTHOR
 
 Bryan Donlan, E<lt>bdonlan@gmail.comE<gt>
+
+
+=head1 SEE ALSO
+
+L<Storable>, L<perltie>
 
 =head1 COPYRIGHT AND LICENSE
 

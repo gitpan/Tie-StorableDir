@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: Tie-StorableDir
-version: 0.074
+version: 0.075
 author:
   - Bryan Donlan <bdonlan@gmail.com>
 abstract: |-
@@ -16,7 +16,7 @@ requires:
 provides:
   Tie::StorableDir:
     file: lib/Tie/StorableDir.pm
-    version: 0.074
+    version: 0.075
   Tie::StorableDir::BackedArray:
     file: lib/Tie/StorableDir/BackedArray.pm
   Tie::StorableDir::BackedHash:
