@@ -14,7 +14,7 @@ use Scalar::Util qw(weaken);
 use Tie::StorableDir::Slot;
 
 our @ISA = qw(Tie::Hash);
-our $VERSION = 0.071;
+our $VERSION = 0.072;
 
 # if $not_exiting = 0, we don't save anything. This is set at the end of the
 # END {} block lower. This prevents gc ordering problems from trashing the data.

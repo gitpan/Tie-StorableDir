@@ -71,7 +71,7 @@ ok(exists $hash{undef} && !defined $hash{undef}, 'Undef values');
 
 SKIP: {
 	$hash{hash} = 'dummy';
-	skip 'Need Struct::Compare for hash tests', 1 unless $have_sc;
+	skip 'Need Struct::Compare', 1 unless $have_sc;
 	my $scalar = 42;
 	my $htest = {
 		string => 'bar',

@@ -1,5 +1,8 @@
 Revision history for Perl extension Tie::StorableDir.
 
+0.072 Thu Jan 27 17:22:18 EST 2005
+	- Added two tests to t/04errors.t, and made it not fail on Windows.
+
 0.071 Wed Jan 26 17:50:30 2005
     - Updated README and Build.PL with accurate licensing and other information
 

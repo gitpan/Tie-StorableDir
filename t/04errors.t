@@ -3,7 +3,7 @@ our $tests;
 our $testdir;
 BEGIN {
 	$testdir = 'StorableDir-testdir';
-	$tests = 7;
+	$tests = 9;
 }
 use Test::More tests => $tests;
 BEGIN {
@@ -40,6 +40,9 @@ SKIP: {
 	};
 	if ($@) {
 		skip "Can't create exec-only test tree: $@", 1;
+	}
+	if (-r $testdir) {
+		skip "Unix permissions don't seem to work on your system.", 1;
 	}
 	eval {
 		my %hash;
@@ -85,9 +88,39 @@ SKIP: {
 	eval {
 		File::Path::rmtree($testdir, 0, 0);
 		File::Path::mkpath([$testdir, "$testdir/ktest"], 0, 0700);
+	};
+	if ($@) {
+		skip "Can't create test tree: $@", 1;
+	}
+	tie %hash, 'Tie::StorableDir', dirname => $testdir;
+	ok(keys %hash == 0, 'Directory ignoring');
+}
+
+SKIP: {
+	my %hash;
+	eval {
+		File::Path::rmtree($testdir, 0, 0);
+		File::Path::mkpath([$testdir], 0, 0700);
 		open FILE, ">$testdir/ktest2" or die $!;
 		close FILE;
 		chmod 0000, "$testdir/ktest2" or die $!;
+		if (-r "$testdir/ktest2") {
+			skip "Unix permissions don't seem to work on your system.", 1;
+		}
+	};
+	if ($@) {
+		skip "Can't create test tree: $@", 1;
+	}
+	tie %hash, 'Tie::StorableDir', dirname => $testdir;
+	ok(keys %hash == 0, 'Unreadable file ignoring');
+}
+
+
+SKIP: {
+	my %hash;
+	eval {
+		File::Path::rmtree($testdir, 0, 0);
+		File::Path::mkpath([$testdir], 0, 0700);
 		open FILE, ">$testdir/foobar" or die $!;
 		close FILE;
 	};
@@ -95,7 +128,7 @@ SKIP: {
 		skip "Can't create test tree: $@", 1;
 	}
 	tie %hash, 'Tie::StorableDir', dirname => $testdir;
-	ok(keys %hash == 0, 'Directory, unreadable file, ill-formatted ignoring');
+	ok(keys %hash == 0, 'Ill-formatted name ignoring');
 }
 
 SKIP: {
