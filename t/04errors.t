@@ -69,6 +69,8 @@ SKIP: {
 		close FILE;
 		chmod 0000, "$testdir/ktest"
 			or skip "Can't chmod test file", 2;
+        !-r "$testdir/ktest" && !-w "$testdir/ktest"
+            or skip "Permissions aren't working properly, hmm", 2;
 	};
 	if ($@) {
 		skip "Error: $@", 2;
