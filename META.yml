@@ -1,10 +1,10 @@
 --- #YAML:1.0
 name: Tie-StorableDir
-version: 0.07
-author: Bryan Donlan <bdonlan@beginyourfear.com>
+version: 0.071
+author: Bryan Donlan <bdonlan@gmail.com>
 abstract: |-
   Perl extension for tying directories with Storable files
-license: gpl
+license: perl
 requires:
   Carp: 0
   File::Spec: 0
@@ -15,7 +15,7 @@ requires:
 provides:
   Tie::StorableDir:
     file: lib/Tie/StorableDir.pm
-    version: 0.07
+    version: 0.071
   Tie::StorableDir::BackedArray:
     file: lib/Tie/StorableDir/BackedArray.pm
   Tie::StorableDir::BackedHash:

@@ -4,8 +4,8 @@ use Module::Build;
 my $build = Module::Build->new(
 	module_name        => 'Tie::StorableDir',
 	dist_version_from  => 'lib/Tie/StorableDir.pm',
-	dist_author        => 'Bryan Donlan <bdonlan@beginyourfear.com>',
-	license            => 'gpl',
+	dist_author        => 'Bryan Donlan <bdonlan@gmail.com>',
+	license            => 'perl',
 	requires           => {
         Carp                    => 0,
 		'File::Spec'            => 0,

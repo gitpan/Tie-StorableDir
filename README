@@ -1,16 +1,9 @@
 Tie-StorableDir version 0.06
 ============================
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
-
-A README file is required for CPAN modules since CPAN extracts the
-README file from a module distribution so that people browsing the
-archive can use it get an idea of the modules uses. It is usually a
-good idea to provide version information here so that people can
-decide whether fixes for the module are worth downloading.
+Tie::StorableDir is a module which ties a hash to a backing directory. It uses
+Storable.pm to serialize and deserialize perl data structures, and escapes keys
+so reserved characters may be used.
 
 INSTALLATION
 
@@ -25,13 +18,13 @@ DEPENDENCIES
 
 This module requires these other modules and libraries:
 
-  blah blah blah
+  * IO::Dir
+  * Storable
+  * Perl 5.8.0 or greater
 
 COPYRIGHT AND LICENCE
 
-Put the correct copyright and licence information here.
-
-Copyright (C) 2005 by A. U. Thor
+Copyright (C) 2005 by Bryan Donlan
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.5 or,
