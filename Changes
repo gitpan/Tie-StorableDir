@@ -1,5 +1,8 @@
 Revision history for Perl extension Tie::StorableDir.
 
+0.074 Sat Jan 29 11:25:20 EST 2005
+    - Remove generated Makefile.PL; add MANIFEST.SKIP
+
 0.073 Fri Jan 28 22:28:09 EST 2005
     - Fix t/04errors.t when run as root
 

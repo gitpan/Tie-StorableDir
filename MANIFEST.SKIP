@@ -1,0 +1,7 @@
+^Makefile.PL$
+\..*\.swp$
+\.tar.*$
+\.bak$
+^_build/
+^blib/
+^Build$
